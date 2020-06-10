@@ -1,2 +1,16 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<div class="container">
+  <h1 class="text-center">Cocktails</h1>
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-6">
+      <%= form_with(url: "/", method: :get) do |f| %>
+        <%= label_tag(:query, "Search for") %>
+        <%= text_field_tag(:query) %>
+        <%= submit_tag("Search", class: "btn btn-primary") %>
+      <% end %>
+      <% @cocktails.each do |cocktail| %>
+        <h4><%= cocktail.name %> <small><%= cocktail.glass %> glass</small></h4>
+        <p><%= cocktail.preparation %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

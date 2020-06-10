@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-
-  resources :cocktails, only: :index
+  root "cocktails#index"
 end
