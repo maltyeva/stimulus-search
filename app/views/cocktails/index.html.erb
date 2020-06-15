@@ -1,16 +1,15 @@
 <div class="container">
-  <h1 class="text-center">Cocktails</h1>
   <div class="row justify-content-center" data-controller="search">
     <div class="col-xs-12 col-sm-6">
-      <%= form_with(url: "/", method: :get) do |f| %>
+      <h1>Cocktails</h1>
+      <%= form_with(url: "/", method: :get, data: {action: "submit->search#submit"}) do |f| %>
         <%= label_tag(:query, "Search for") %>
-        <%= text_field_tag(:query) %>
+        <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
         <%= submit_tag("Search", class: "btn btn-primary") %>
       <% end %>
-      <% @cocktails.each do |cocktail| %>
-        <h4><%= cocktail.name %> <small><%= cocktail.glass %> glass</small></h4>
-        <p><%= cocktail.preparation %></p>
-      <% end %>
+      <div id="cocktails" data-target="search.cocktails">
+        <%= render @cocktails %>
+      </div>
     </div>
   </div>
 </div>
