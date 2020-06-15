@@ -5,6 +5,8 @@ class CocktailsController < ApplicationController
     else
       @cocktails = Cocktail.all
     end
+
+
     respond_to do |format|
       format.html
       format.json { render json: { cocktails: @cocktails } }
