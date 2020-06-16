@@ -23,12 +23,10 @@ export default class extends Controller {
 
 
   cocktailTemplate(cocktail) {
-    return `
-    <div>
+    return `<div>
     <h4>${cocktail.name} <small>${cocktail.glass}</small></h4>
     <p>${cocktail.preparation}</p>
-    </div>
-    `
+    </div> `
   }
 
 }
