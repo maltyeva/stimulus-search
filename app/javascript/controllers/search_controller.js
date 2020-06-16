@@ -11,9 +11,9 @@ export default class extends Controller {
     fetch(`/?query=${value}`, {
       headers: { accept: 'application/json'}
     }).then((response) => response.json())
-    .then(cocktails => { 
+    .then(data => { 
      var cocktailHTML = "";
-     var cocktailArray = Object.values(cocktails)[0]
+     var cocktailArray = Object.values(data)[0]
      cocktailArray.forEach(cocktail => {
       cocktailHTML += this.cocktailTemplate(cocktail)
     });
